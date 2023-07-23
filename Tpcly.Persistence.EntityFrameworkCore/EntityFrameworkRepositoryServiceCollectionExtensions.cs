@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using NetCore.Persistence.Abstractions;
+using Tpcly.Persistence.Abstractions;
 
-namespace NetCore.Persistence.EntityFrameworkCore;
+namespace Tpcly.Persistence.EntityFrameworkCore;
 
 public static class EntityFrameworkRepositoryServiceCollectionExtensions
 {

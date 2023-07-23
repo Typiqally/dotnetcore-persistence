@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using NetCore.Persistence.Abstractions;
+using Tpcly.Persistence.Abstractions;
 
-namespace NetCore.Persistence;
+namespace Tpcly.Persistence;
 
 public abstract record Entity<TKey> : IEntity<TKey>
 {

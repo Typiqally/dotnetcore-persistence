@@ -11,11 +11,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\NetCore.Persistence.Abstractions\NetCore.Persistence.Abstractions.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.20" />
+      <ProjectReference Include="..\Tpcly.Persistence.Abstractions\Tpcly.Persistence.Abstractions.csproj" />
     </ItemGroup>
 
 </Project>

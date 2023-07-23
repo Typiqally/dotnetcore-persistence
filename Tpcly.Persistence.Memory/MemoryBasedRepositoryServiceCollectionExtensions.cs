@@ -1,7 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
-using NetCore.Persistence.Abstractions;
+using Tpcly.Persistence.Abstractions;
 
-namespace NetCore.Persistence.Memory;
+namespace Tpcly.Persistence.Memory;
 
 public static class MemoryBasedRepositoryServiceCollectionExtensions
 {
