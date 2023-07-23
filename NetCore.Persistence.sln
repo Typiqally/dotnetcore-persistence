@@ -1,0 +1,34 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCore.Persistence.Abstractions", "NetCore.Persistence.Abstractions\NetCore.Persistence.Abstractions.csproj", "{A984C4A9-385A-40E5-9579-368C3CABE546}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCore.Persistence.Memory", "NetCore.Persistence.Memory\NetCore.Persistence.Memory.csproj", "{DE2BE495-D88C-441B-BC35-E9FF1541DAD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCore.Persistence.EntityFrameworkCore", "NetCore.Persistence.EntityFrameworkCore\NetCore.Persistence.EntityFrameworkCore.csproj", "{0BC5DEBE-B205-4CB7-8B6A-BE926FDBDEA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCore.Persistence", "NetCore.Persistence\NetCore.Persistence.csproj", "{5FDF7F06-9925-4851-BB73-349D5DD96201}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A984C4A9-385A-40E5-9579-368C3CABE546}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A984C4A9-385A-40E5-9579-368C3CABE546}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A984C4A9-385A-40E5-9579-368C3CABE546}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A984C4A9-385A-40E5-9579-368C3CABE546}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE2BE495-D88C-441B-BC35-E9FF1541DAD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE2BE495-D88C-441B-BC35-E9FF1541DAD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE2BE495-D88C-441B-BC35-E9FF1541DAD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE2BE495-D88C-441B-BC35-E9FF1541DAD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BC5DEBE-B205-4CB7-8B6A-BE926FDBDEA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BC5DEBE-B205-4CB7-8B6A-BE926FDBDEA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BC5DEBE-B205-4CB7-8B6A-BE926FDBDEA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BC5DEBE-B205-4CB7-8B6A-BE926FDBDEA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FDF7F06-9925-4851-BB73-349D5DD96201}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FDF7F06-9925-4851-BB73-349D5DD96201}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FDF7F06-9925-4851-BB73-349D5DD96201}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FDF7F06-9925-4851-BB73-349D5DD96201}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
