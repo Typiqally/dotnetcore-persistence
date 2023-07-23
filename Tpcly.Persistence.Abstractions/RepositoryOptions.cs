@@ -1,4 +1,4 @@
-namespace NetCore.Persistence.Abstractions;
+namespace Tpcly.Persistence.Abstractions;
 
 public class RepositoryOptions
 {

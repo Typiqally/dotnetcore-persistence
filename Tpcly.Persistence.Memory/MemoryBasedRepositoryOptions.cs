@@ -1,6 +1,6 @@
-using NetCore.Persistence.Abstractions;
+using Tpcly.Persistence.Abstractions;
 
-namespace NetCore.Persistence.Memory;
+namespace Tpcly.Persistence.Memory;
 
 public class MemoryBasedRepositoryOptions<TEntity> : RepositoryOptions
     where TEntity : class, IEntity

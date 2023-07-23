@@ -1,12 +1,12 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCore.Persistence.Abstractions", "NetCore.Persistence.Abstractions\NetCore.Persistence.Abstractions.csproj", "{A984C4A9-385A-40E5-9579-368C3CABE546}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tpcly.Persistence.Abstractions", "Tpcly.Persistence.Abstractions\Tpcly.Persistence.Abstractions.csproj", "{A984C4A9-385A-40E5-9579-368C3CABE546}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCore.Persistence.Memory", "NetCore.Persistence.Memory\NetCore.Persistence.Memory.csproj", "{DE2BE495-D88C-441B-BC35-E9FF1541DAD6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tpcly.Persistence.Memory", "Tpcly.Persistence.Memory\Tpcly.Persistence.Memory.csproj", "{DE2BE495-D88C-441B-BC35-E9FF1541DAD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCore.Persistence.EntityFrameworkCore", "NetCore.Persistence.EntityFrameworkCore\NetCore.Persistence.EntityFrameworkCore.csproj", "{0BC5DEBE-B205-4CB7-8B6A-BE926FDBDEA3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tpcly.Persistence.EntityFrameworkCore", "Tpcly.Persistence.EntityFrameworkCore\Tpcly.Persistence.EntityFrameworkCore.csproj", "{0BC5DEBE-B205-4CB7-8B6A-BE926FDBDEA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCore.Persistence", "NetCore.Persistence\NetCore.Persistence.csproj", "{5FDF7F06-9925-4851-BB73-349D5DD96201}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tpcly.Persistence", "Tpcly.Persistence\Tpcly.Persistence.csproj", "{5FDF7F06-9925-4851-BB73-349D5DD96201}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

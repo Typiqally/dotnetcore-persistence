@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using NetCore.Persistence.Abstractions;
+using Tpcly.Persistence.Abstractions;
 
-namespace NetCore.Persistence.EntityFrameworkCore;
+namespace Tpcly.Persistence.EntityFrameworkCore;
 
 public class EntityFrameworkRepository<TContext, TEntity> : EntityFrameworkReadOnlyRepository<TContext, TEntity>, IRepository<TEntity>
     where TContext : DbContext

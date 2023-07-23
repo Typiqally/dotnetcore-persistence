@@ -1,19 +1,26 @@
 using System.Linq.Expressions;
-using Microsoft.EntityFrameworkCore;
-using NetCore.Persistence.Abstractions;
+using Tpcly.Persistence.Abstractions;
 
-namespace NetCore.Persistence.EntityFrameworkCore;
+namespace Tpcly.Persistence.Memory;
 
-public class EntityFrameworkReadOnlyRepository<TContext, TEntity> : IReadOnlyRepository<TEntity>
-    where TContext : DbContext
-    where TEntity : class, IEntity
+public class MemoryBasedReadOnlyRepository<TEntity> : IReadOnlyRepository<TEntity> where TEntity : class, IEntity
 {
-    protected readonly TContext Context;
-
-    public EntityFrameworkReadOnlyRepository(TContext context)
+    public MemoryBasedReadOnlyRepository()
     {
-        Context = context;
+        Store = new Dictionary<object, TEntity>();
     }
+
+    public MemoryBasedReadOnlyRepository(IDictionary<object, TEntity> store)
+    {
+        Store = store;
+    }
+
+    public MemoryBasedReadOnlyRepository(IEnumerable<TEntity> entities)
+    {
+        Store = entities.ToDictionary(static e => e.Id, static e => e);
+    }
+
+    protected IDictionary<object, TEntity> Store { get; }
 
     protected virtual IQueryable<TEntity?> GetQueryable(
         Expression<Func<TEntity, bool>>? filter = null,
@@ -22,15 +29,12 @@ public class EntityFrameworkReadOnlyRepository<TContext, TEntity> : IReadOnlyRep
         int? skip = null,
         int? take = null)
     {
-        includeProperties ??= Array.Empty<string>();
-        IQueryable<TEntity?> query = Context.Set<TEntity>();
+        var query = Store.Values.AsQueryable();
 
         if (filter != null)
         {
             query = query.Where(filter);
         }
-
-        query = includeProperties.Aggregate(query, static (current, includeProperty) => current.Include(includeProperty));
 
         if (orderBy != null)
         {
@@ -65,7 +69,7 @@ public class EntityFrameworkReadOnlyRepository<TContext, TEntity> : IReadOnlyRep
         int? skip = null,
         int? take = null)
     {
-        return await GetQueryable(null, orderBy, includeProperties, skip, take).ToListAsync();
+        return AllToList(orderBy, includeProperties, skip, take);
     }
 
     public IEnumerable<TEntity?> ToList(
@@ -85,7 +89,7 @@ public class EntityFrameworkReadOnlyRepository<TContext, TEntity> : IReadOnlyRep
         int? skip = null,
         int? take = null)
     {
-        return await GetQueryable(filter, orderBy, includeProperties, skip, take).ToListAsync();
+        return ToList(filter, orderBy, includeProperties, skip, take);
     }
 
     public TEntity? SingleOrDefault(Expression<Func<TEntity, bool>>? filter = null, string[]? includeProperties = null)
@@ -95,7 +99,7 @@ public class EntityFrameworkReadOnlyRepository<TContext, TEntity> : IReadOnlyRep
 
     public async Task<TEntity?> SingleOrDefaultAsync(Expression<Func<TEntity, bool>>? filter = null, string[]? includeProperties = null)
     {
-        return await GetQueryable(filter, null, includeProperties).SingleOrDefaultAsync();
+        return SingleOrDefault(filter, includeProperties);
     }
 
     public TEntity? FirstOrDefault(
@@ -111,17 +115,18 @@ public class EntityFrameworkReadOnlyRepository<TContext, TEntity> : IReadOnlyRep
         Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null,
         string[]? includeProperties = null)
     {
-        return await GetQueryable(filter, orderBy, includeProperties).FirstOrDefaultAsync();
+        return FirstOrDefault(filter, orderBy, includeProperties);
     }
 
     public TEntity? Find(object? id)
     {
-        return Context.Set<TEntity>().Find(id);
+        Store.TryGetValue(id, out var entity);
+        return entity;
     }
 
     public async Task<TEntity?> FindAsync(object? id)
     {
-        return await Context.Set<TEntity>().FindAsync(id);
+        return Find(id);
     }
 
     public int Count(Expression<Func<TEntity, bool>>? filter = null)
@@ -129,9 +134,9 @@ public class EntityFrameworkReadOnlyRepository<TContext, TEntity> : IReadOnlyRep
         return GetQueryable(filter).Count();
     }
 
-    public Task<int> CountAsync(Expression<Func<TEntity, bool>>? filter = null)
+    public async Task<int> CountAsync(Expression<Func<TEntity, bool>>? filter = null)
     {
-        return GetQueryable(filter).CountAsync();
+        return Count(filter);
     }
 
     public bool Any(Expression<Func<TEntity, bool>>? filter = null)
@@ -139,8 +144,8 @@ public class EntityFrameworkReadOnlyRepository<TContext, TEntity> : IReadOnlyRep
         return GetQueryable(filter).Any();
     }
 
-    public Task<bool> AnyAsync(Expression<Func<TEntity, bool>>? filter = null)
+    public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>>? filter = null)
     {
-        return GetQueryable(filter).AnyAsync();
+        return Any(filter);
     }
 }

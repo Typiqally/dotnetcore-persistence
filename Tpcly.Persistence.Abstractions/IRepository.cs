@@ -1,4 +1,4 @@
-namespace NetCore.Persistence.Abstractions;
+namespace Tpcly.Persistence.Abstractions;
 
 public interface IRepository<TEntity> : IReadOnlyRepository<TEntity>
     where TEntity : class, IEntity

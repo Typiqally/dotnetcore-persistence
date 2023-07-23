@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 
-namespace NetCore.Persistence.Abstractions;
+namespace Tpcly.Persistence.Abstractions;
 
 public interface IReadOnlyRepository<TEntity>
     where TEntity : class, IEntity

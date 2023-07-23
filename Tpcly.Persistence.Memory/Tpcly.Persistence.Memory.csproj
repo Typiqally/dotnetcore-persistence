@@ -11,7 +11,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\NetCore.Persistence.Abstractions\NetCore.Persistence.Abstractions.csproj" />
+      <ProjectReference Include="..\Tpcly.Persistence.Abstractions\Tpcly.Persistence.Abstractions.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
     </ItemGroup>
 
 </Project>
